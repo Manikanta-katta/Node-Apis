@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const EmployeeRoute = require("./routes/employee");
+const AuthenticateRoute = require("./routes/auth");
 mongoose
   .connect(
     "mongodb+srv://manikanta:manikanta@cluster0.taclgus.mongodb.net/?retryWrites=true&w=majority",
@@ -29,5 +30,6 @@ const PORT = process.env.PORT || 2000;
 
 app.listen(PORT, () => console.log(`Server running...${PORT}`));
 app.use("/api/employee", EmployeeRoute);
+app.use("/api/employee", AuthenticateRoute);
 
-module.exports = app
+module.exports = app;
