@@ -1,7 +1,6 @@
 const Employee = require("../models/employee");
 
 //Show the list of Employees
-
 const index = (req, res, next) => {
   Employee.find()
     .then((response) => {
