@@ -3,6 +3,7 @@ const multer = require("multer");
 const router = express.Router();
 const upload = require("../middleware/upload");
 const Audiofile = require("../contollers/audio-to-text");
+const audio = require('../models/audio-to-text')
 const { Deepgram } = require("@deepgram/sdk");
 
 // The API key we created in step 3
@@ -19,19 +20,24 @@ router.post("/upload", Audiofile.store);
 
 const gettext = (req, res) => {
   const audioUrlId = req.body.audioUrlId;
-  Audiofile.findById(audioUrlId)
+  console.log(audioUrlId)
+  audio.findById(audioUrlId)
     .then(
-      deepgram.transcription
-        .preRecorded(
-          { url: audioUrlId },
-          { punctuate: true, model: "nova", language: "en-IN" }
-        )
-        .then((transcription) => {
-          console.dir(transcription.results.channels, { depth: null });
-          res.json({
-            transcription,
-          });
-        })
+      (response)=>{
+        //  deepgram.transcription
+        // .preRecorded(
+        //   { url: response.audiofile },
+        //   { punctuate: true, model: "nova", language: "en-IN" }
+        // )
+        // .then((transcription) => {
+        //   console.dir(transcription.results.channels, { depth: null });
+        //   res.json({
+        //     transcription,
+        //   });
+        // })
+    
+      response.audiofile
+      }
     )
 
     .catch((err) => {
