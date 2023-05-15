@@ -23,21 +23,22 @@ const gettext = (req, res) => {
   console.log(audioUrlId)
   audio.findById(audioUrlId)
     .then(
-      // deepgram.transcription
-      //   .preRecorded(
-      //     { url: audioUrlId },
-      //     { punctuate: true, model: "nova", language: "en-IN" }
-      //   )
-      //   .then((transcription) => {
-      //     console.dir(transcription.results.channels, { depth: null });
-      //     res.json({
-      //       transcription,
-      //     });
-      //   })
       (response)=>{
+         deepgram.transcription
+        .preRecorded(
+          { url: audioUrlId },
+          { punctuate: true, model: "nova", language: "en-IN" }
+        )
+        .then((transcription) => {
+          console.dir(transcription.results.channels, { depth: null });
+          res.json({
+            transcription,
+          });
+        })
        res.json({
         response
        })
+       console.log(response.audiofile)
       }
     )
 
