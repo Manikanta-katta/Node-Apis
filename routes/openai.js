@@ -26,7 +26,7 @@ const gettext = (req, res) => {
       (response)=>{
          deepgram.transcription
         .preRecorded(
-          { url: audioUrlId },
+          { url: response.audiofile },
           { punctuate: true, model: "nova", language: "en-IN" }
         )
         .then((transcription) => {
@@ -35,9 +35,6 @@ const gettext = (req, res) => {
             transcription,
           });
         })
-       res.json({
-        response
-       })
        console.log(response.audiofile)
       }
     )
