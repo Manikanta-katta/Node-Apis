@@ -35,8 +35,7 @@ const gettext = (req, res) => {
         //     transcription,
         //   });
         // })
-    
-      response.audiofile
+    res.json(response.audiofile)
       }
     )
 
