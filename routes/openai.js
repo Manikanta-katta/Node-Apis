@@ -24,18 +24,19 @@ const gettext = (req, res) => {
   audio.findById(audioUrlId)
     .then(
       (response)=>{
-         deepgram.transcription
-        .preRecorded(
-          { url: response.audiofile },
-          { punctuate: true, model: "nova", language: "en-IN" }
-        )
-        .then((transcription) => {
-          console.dir(transcription.results.channels, { depth: null });
-          res.json({
-            transcription,
-          });
-        })
-       console.log(response.audiofile)
+        //  deepgram.transcription
+        // .preRecorded(
+        //   { url: response.audiofile },
+        //   { punctuate: true, model: "nova", language: "en-IN" }
+        // )
+        // .then((transcription) => {
+        //   console.dir(transcription.results.channels, { depth: null });
+        //   res.json({
+        //     transcription,
+        //   });
+        // })
+    
+      response.audiofile
       }
     )
 
