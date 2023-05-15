@@ -1,5 +1,19 @@
 const Audiofile = require("../models/audio-to-text");
+const { response } = require("../server");
 
+const index = (req, res) => {
+  Audiofile.find()
+    .then((response) => {
+      res.json({
+        response,
+      });
+    })
+    .catch((err) => {
+      res.json({
+        message: "An error Occcured !",
+      });
+    });
+};
 const store = (req, res, next) => {
   let audiofile = new Audiofile({
     name: req.body.name,
@@ -22,4 +36,4 @@ const store = (req, res, next) => {
     });
   console.log(audiofile);
 };
-module.exports = { store };
+module.exports = { store,index };

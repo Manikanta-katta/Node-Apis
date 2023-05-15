@@ -39,5 +39,6 @@ const gettext = (req, res) => {
     });
 };
 
-router.get("/getaudio", gettext);
+router.post("/getaudio", gettext);
+router.get('/getaudios',Audiofile.index)
 module.exports = router;
