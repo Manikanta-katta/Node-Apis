@@ -30,7 +30,6 @@ const db = mongoose.connection;
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-const PORT = process.env.PORT || 2000;
 
 const corsOptions ={
   origin:'http://localhost:2000', 
@@ -40,6 +39,7 @@ const corsOptions ={
 app.use(cors(corsOptions))
 
 
+const PORT = process.env.PORT || 2000;
 
 app.listen(PORT, () => console.log(`Server running...${PORT}`));
 app.use("/api/employee", EmployeeRoute);
