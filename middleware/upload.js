@@ -28,8 +28,8 @@ var upload = multer({
   },
 });
 
-var s3upload = multer-s3.memoryStorage({
+// var s3upload = multer-s3.memoryStorage({
 
-})
+// })
 
 module.exports = upload;
