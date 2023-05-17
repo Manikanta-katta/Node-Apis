@@ -15,7 +15,6 @@ const deepgramApiKey = "2047de2b231ef44b331e684141c2317a6f6ff5d1";
 
 // Initializes the Deepgram SDK
 const deepgram = new Deepgram(deepgramApiKey);
-
 router.post("/upload", Audiofile.store);
 
 const gettext = (req, res) => {
@@ -42,7 +41,6 @@ const gettext = (req, res) => {
         });
       // res.json(response.audiofile)
     })
-
     .catch((err) => {
       console.log(err);
     });
