@@ -32,14 +32,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const corsOptions ={
-  origin:'http://localhost:2000', 
+  origin:'http://localhost:3000', 
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200
 }
 app.use(cors(corsOptions))
+const PORT = process.env.PORT || 3000;
 
 
-const PORT = process.env.PORT || 2000;
 
 app.listen(PORT, () => console.log(`Server running...${PORT}`));
 app.use("/api/employee", EmployeeRoute);
