@@ -8,6 +8,7 @@ const EmployeeRoute = require("./routes/employee");
 const AuthenticateRoute = require("./routes/auth");
 const Audio = require("./routes/openai")
 const Personal = require('./routes/personal')
+
 mongoose
   .connect(
     "mongodb+srv://manikanta:manikanta@cluster0.taclgus.mongodb.net/?retryWrites=true&w=majority",
@@ -29,6 +30,7 @@ const db = mongoose.connection;
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors())
 const PORT = process.env.PORT || 2000;
 
 app.listen(PORT, () => console.log(`Server running...${PORT}`));

@@ -7,7 +7,7 @@ const audio = require("../models/audio-to-text");
 const { Deepgram } = require("@deepgram/sdk");
 
 // The API key we created in step 3
-const deepgramApiKey = "ce9847614f31392337e8f41c6220039f8c5b91b0";
+const deepgramApiKey = "2047de2b231ef44b331e684141c2317a6f6ff5d1";
 
 // Hosted sample file
 // const audioUrl =
@@ -15,7 +15,6 @@ const deepgramApiKey = "ce9847614f31392337e8f41c6220039f8c5b91b0";
 
 // Initializes the Deepgram SDK
 const deepgram = new Deepgram(deepgramApiKey);
-
 router.post("/upload", Audiofile.store);
 
 const gettext = (req, res) => {
@@ -42,7 +41,6 @@ const gettext = (req, res) => {
         });
       // res.json(response.audiofile)
     })
-
     .catch((err) => {
       console.log(err);
     });
