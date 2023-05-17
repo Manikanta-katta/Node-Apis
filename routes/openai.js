@@ -7,7 +7,7 @@ const audio = require("../models/audio-to-text");
 const { Deepgram } = require("@deepgram/sdk");
 
 // The API key we created in step 3
-const deepgramApiKey = "2047de2b231ef44b331e684141c2317a6f6ff5d1";
+const deepgramApiKey = "ff9cab01429ab455fe40637382ac1205223a88c4";
 
 // Hosted sample file
 // const audioUrl =
