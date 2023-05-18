@@ -49,6 +49,7 @@ const login = (req, res, next) => {
             });
             res.json({
               message: "Login succesfull !",
+              user,
               token,
             });
           } else {
