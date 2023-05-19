@@ -17,8 +17,8 @@ mongoose
   .then(() => console.log("DB Connected .."))
   .catch((err) => console.log(err));
 
-const db = mongoose.connection;
-db.db("audiofiles");
+// const db = mongoose.connection;
+// db.db("audiofiles");
 
 // db.on('error',(err) =>{
 //     console.log(err)
