@@ -1,6 +1,6 @@
 require('dotenv').config();
 const AWS = require("aws-sdk");
-
+console.log(process.env)
 console.log(process.env.SECRET_KEY)
 const clientaccess = new AWS.S3({
   accessKeyId: process.env.ACCESS_KEY,
