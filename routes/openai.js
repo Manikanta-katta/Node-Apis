@@ -4,10 +4,11 @@ const router = express.Router();
 const upload = require("../middleware/upload");
 const Audiofile = require("../contollers/audio-to-text");
 const audio = require("../models/audio-to-text");
+const controller = require("../contollers/s3controller");
 const { Deepgram } = require("@deepgram/sdk");
 
 // The API key we created in step 3
-const deepgramApiKey = "94ab1b371af1da9aace0e741680fa23dc306181b";
+const deepgramApiKey = "19c0faa4995755f6d82bd7b191c5f370e6162c1f";
 
 // Hosted sample file
 
@@ -43,7 +44,7 @@ const gettext = (req, res) => {
       console.log(err);
     });
 };
-
-router.post("/getaudio", gettext);
+router.post("/uploadfile", upload.single("audiofile"), controller.upload),
+  router.post("/getaudio", gettext);
 router.get("/getaudios", Audiofile.index);
 module.exports = router;
