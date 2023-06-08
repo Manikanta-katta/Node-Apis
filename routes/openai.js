@@ -8,7 +8,7 @@ const controller = require("../contollers/s3controller");
 const { Deepgram } = require("@deepgram/sdk");
 
 // The API key we created in step 3
-const deepgramApiKey = "19c0faa4995755f6d82bd7b191c5f370e6162c1f";
+const deepgramApiKey = "e5148b8d90c001e37f8f213477729fad5c443283";
 
 // Hosted sample file
 
@@ -45,6 +45,6 @@ const gettext = (req, res) => {
     });
 };
 router.post("/uploadfile", upload.single("audiofile"), controller.upload),
-  router.post("/getaudio", gettext);
+router.post("/getaudio", gettext);
 router.get("/getaudios", Audiofile.index);
 module.exports = router;

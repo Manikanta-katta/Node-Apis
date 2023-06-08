@@ -1,4 +1,5 @@
 const s3 = require("../s3Config");
+const Audiofile = require("../models/audio-to-text");
 
 const upload = (req, res) => {
   const params = {
@@ -13,10 +14,23 @@ const upload = (req, res) => {
         message: err,
       });
     } else {
-      res.status(200).json({
-        message: "file uploaded successfully",
-        Oject_url: `${data.Location}`,
+      const audiofiles = new Audiofile({
+        name: req.body.name,
+        audiofile: `${data.Location}`,
       });
+      audiofiles
+        .save()
+        .then((response) => {
+          res.status(200).json({
+            message: "Audio added successfully!",
+            response,
+          });
+        })
+        .catch((err) => {
+          res.json({
+            message: " An error Occured!",
+          });
+        });
     }
   });
 };

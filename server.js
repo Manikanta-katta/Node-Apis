@@ -19,7 +19,7 @@ mongoose
 
 // const db = mongoose.connection;
 // db.db("audiofiles");
-
+// "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.9.0"
 // db.on('error',(err) =>{
 //     console.log(err)
 // })
