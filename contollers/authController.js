@@ -36,6 +36,7 @@ const login = (req, res, next) => {
 
   User.findOne({ $or: [{ email: username }, { phonenumber: username }] }).then(
     (user) => {
+      console.log(user);
       if (user) {
         bcrypt.compare(password, user.password, function (err, result) {
           if (err) {
@@ -44,14 +45,18 @@ const login = (req, res, next) => {
             });
           }
           if (result) {
+            console.log(result)
             let token = jwt.sign({ name: user.name }, "verySecretValue", {
               expiresIn: "1h",
             });
-            res.json({
-              message: "Login succesfull !",
-              user,
-              token,
-            });
+            res.json(
+              {
+                message: "Login succesfull !",
+                user,
+                token,
+              },
+              next()
+            );
           } else {
             res.json({
               message: "password does not mached !",
@@ -67,4 +72,23 @@ const login = (req, res, next) => {
   );
 };
 
-module.exports = { registerUser, login };
+
+const authenticateToken = (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+
+  if (!token) {
+    return res.sendStatus(401); // Unauthorized
+  }
+
+  jwt.verify(token, 'verySecretValue', (err, user) => {
+    if (err) {
+      return res.sendStatus(403); // Forbidden
+    }
+
+    req.user = user;
+    next();
+  });
+};
+
+module.exports = { registerUser, login ,authenticateToken };

@@ -11,6 +11,7 @@ const store = (req, res, next) => {
     .then((response) => {
       res.json({
         message: "addded successfully",
+        response
       });
     })
     .catch((err) => {
