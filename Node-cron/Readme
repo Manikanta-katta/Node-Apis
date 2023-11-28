@@ -1,0 +1,12 @@
+Cron:  
+--> Cron is a utility program that lets users input commands for scheduling tasks repeatedly at a specific time. Tasks scheduled in cron are called cron jobs.
+    Users can determine what kind of task they want to automate and when it should be executed. 
+    Cron is a daemon – a background process executing non-interactive jobs.
+
+
+-->  Cron jobs allow you to automate repetitive tasks, which can save time and reduce the risk of errors. Scheduling: Cron jobs allow you to schedule 
+     tasks to run at a specific time or interval, which can be useful for tasks that need to be run on a regular basis.
+
+Nodemailer: 
+--->  NodeMailer is a Node JS module that allows you to send emails from your server easily. It is a zero dependency module for all Node JS-compatible applications.   
+       The emails sent can be plain text, attachments, or HTML. Note that you can use Gmail accounts or Mailtrap to set up fake SMTP servers for testing.

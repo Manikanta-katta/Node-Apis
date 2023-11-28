@@ -1,0 +1,13 @@
+fs  package:
+-->The Node.js file system module allows you to work with the  any file system.
+--> using this package we able to read, create, delete, update,append the files such as images ,files.
+
+inquirer package:
+-->Inquirer is an NPM package that provides an easy way to capture user input in your Node.js command line interface applications. It provides several methods for asking questions and returning answers from the user that can be accessed by a .then promise function.
+
+UUIDs package :
+--> UUIDs are useful for a wide range of use cases, and as you write more code, you’ll find more use cases for UUIDs in your apps.
+--> By using this package we can generate mutilple unique Ids.
+
+csv parser package:
+--> The Comma Separated Values (CSV) Parser reads and writes data in a CSV format.
